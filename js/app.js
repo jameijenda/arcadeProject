@@ -6,12 +6,14 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = -101;
+    this.y = 50;
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-     var movement = movement * dt;   
+     var movement = Enemy.x * dt;   
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -28,15 +30,15 @@ var player = function() {
     this.sprite = 'images/char-boy.png';
 };
 
-player.prototype.update = function(){
+player.update = function(){
     
 };
 
-player.prototype.render = function(){
+player.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-player.prototype.handleInput = function(){
+player.handleInput = function(){
 
 };
 // Now write your own player class
@@ -49,8 +51,18 @@ var enemy1 = new Enemy();
 var enemy2 = new Enemy();
 var enemy3 = new Enemy();
 
+enemy1.x = 50;
+enemy2.x = 150;
+enemy2.y = -15;
+enemy3.x = 300;
+enemy3.y = 200;
+
 
 var allEnemies = [enemy1, enemy2, enemy3];
+
+for (var enemy in allEnemies) {
+    enemy.sprite;
+}
 
 
 // Place all enemy objects in an array called allEnemies
