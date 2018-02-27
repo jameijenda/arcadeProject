@@ -6,8 +6,7 @@ var Enemy = function() {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    /*this.x = -101;
-    this.y = 50;*/
+
 };
 
 // Update the enemy's position, required method for game
@@ -32,13 +31,16 @@ var Player = function() {
     this.y = 600;*/
 };
 
+
 Player.prototype.update = function(){
-    
+  
 };
+
 
 Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
+
 
 Player.prototype.handleInput = function(){
 
@@ -53,6 +55,7 @@ var enemy1 = new Enemy();
 var enemy2 = new Enemy();
 var enemy3 = new Enemy();
 
+
 enemy1.x = 50;
 enemy1.y = 225;
 enemy2.x = 150;
@@ -61,7 +64,10 @@ enemy3.x = 300;
 enemy3.y = 60;
 
 
+
+
 var allEnemies = [enemy1, enemy2, enemy3];
+
 
 for (var enemy in allEnemies) {
     enemy.sprite;
@@ -73,6 +79,7 @@ var player = new Player();
 player.x = 200;
 player.y = 385;
 player.sprite;
+
 
 
 
