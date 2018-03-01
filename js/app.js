@@ -1,18 +1,38 @@
+/*var oldPosition = Enemy.x;
+var distanceTraveled = speed * timeElapsed;
+var newPosition = oldPosition +  speed * timeElapsed;*/
+
+
+// Following random number generator taken from user "Francisc" at https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+
+var randomNumber = function(min,max)
+{
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
+    this.x = x;
+    this.y = y;
+    this.speed = speed;
 
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-     var movement = Enemy.x * dt;   
+     this.x += this.speed * dt;
+
+     if (this.x > 600) {
+        this.x = -100;
+        this.speed = randomNumber(50, 500);
+};
 
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -25,10 +45,10 @@ Enemy.prototype.render = function() {
 };
 
 
-var Player = function() {
+var Player = function(x, y) {
     this.sprite = 'images/char-boy.png';
-    /*this.x = 300;
-    this.y = 600;*/
+    this.x = x;
+    this.y = y;
 };
 
 
@@ -51,34 +71,25 @@ Player.prototype.handleInput = function(){
 
 
 // Now instantiate your objects.
-var enemy1 = new Enemy();
-var enemy2 = new Enemy();
-var enemy3 = new Enemy();
-
-
-enemy1.x = 50;
-enemy1.y = 225;
-enemy2.x = 150;
-enemy2.y = 140;
-enemy3.x = 300;
-enemy3.y = 60;
-
+var enemy1 = new Enemy(-100, 225, randomNumber(50, 500));
+var enemy2 = new Enemy(-100, 140, randomNumber(50, 500));
+var enemy3 = new Enemy(-100, 60, randomNumber(50, 500));
 
 
 
 var allEnemies = [enemy1, enemy2, enemy3];
 
 
-for (var enemy in allEnemies) {
-    enemy.sprite;
-}
+var player = new Player(200, 385);
 
 
-var player = new Player();
 
-player.x = 200;
-player.y = 385;
-player.sprite;
+
+
+//<>
+
+
+
 
 
 
