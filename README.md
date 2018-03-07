@@ -1,6 +1,19 @@
-frontend-nanodegree-arcade-game
-===============================
+# Arcade Game Project
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+The Arcade Game Project focuses on learning Object Oriented Javascript by builiding a game based on Frogger. In order to get this right, knowledge about objects and classes will be put to the test.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+# How do I play?
+
+The goal is simple, get to the water while avoiding the enemies presented in each row.
+We do this by using the arrow keys. 
+Timing will be of the essence since our enemies will appear from the left side at random speeds.
+We're keeping score in the bottom left corner, each time you reach the water you earn one point and our hero resets to the initial position.
+
+## What happens if I lose?
+
+The score resets and so do our character's positions. 
+
+
+### Licence 
+
+This project is released under the [MIT Licence](https://opensource.org/licenses/MIT).

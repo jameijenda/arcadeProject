@@ -4,7 +4,8 @@ let points = 0;
 
 
 
-// Following random number generator taken from user "Francisc" at https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+// The following random number generator was taken from user "Francisc" at https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
+// It is used later when providing random speeds for our enemies.
 
 const randomNumber = function(min,max)
 {
@@ -36,11 +37,18 @@ Enemy.prototype.update = function(dt) {
 
      this.x += this.speed * dt;
 
+     //This keeps our enemies from going off-screen.
+
      if (this.x > ctx.canvas.width) {
         this.x = -100;
         this.speed = randomNumber(50, 500); 
      }   
-       
+     
+
+     // Here's our colission check; if the positions match the conditions, the game resets.
+     // Pulled from MDN web docs at https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+
+
      if (player.x < this.x + this.width &&
          player.x + player.width > this.x &&
          player.y < this.y + this.height &&
@@ -84,6 +92,8 @@ const Player = function(x, y) {
 };
 
 
+// The following function keeps our Hero from going off-screen.
+
 Player.prototype.update = function(){ 
     if (this.x > ctx.canvas.width - 100){
         this.x -= 100;
@@ -93,6 +103,9 @@ Player.prototype.update = function(){
         this.y -= 85;
     } else if (this.y == -35){
         this.y = 390;
+
+        // It also updates our 'points' variable when our Hero reaches the water.
+
         points++;
     };
 };
@@ -118,6 +131,9 @@ Player.prototype.handleInput = function(move){
     }; 
 };
 
+
+// Initial position for our Hero.
+
 Player.prototype.reset = function(){
     this.x = 200;
     this.y = 390;
@@ -132,23 +148,18 @@ const enemy3 = new Enemy(-100, 60, randomNumber(50, 500));
 
 
 
+// Place all enemy objects in an array called allEnemies
+
 const allEnemies = [enemy1, enemy2, enemy3];
 
+
+// Place the player object in a variable called player
 
 const player = new Player(200, 390);
 
 
-//<>
 
 
-
-
-
-
-
-
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
 
 
 
