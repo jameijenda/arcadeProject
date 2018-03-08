@@ -2,6 +2,9 @@
 
 let points = 0;
 
+const tileWidth = 101;
+const tileHeight = 83; 
+
 
 
 // The following random number generator was taken from user "Francisc" at https://stackoverflow.com/questions/4959975/generate-random-number-between-two-numbers-in-javascript
@@ -95,13 +98,13 @@ const Player = function(x, y) {
 // The following function keeps our Hero from going off-screen.
 
 Player.prototype.update = function(){ 
-    if (this.x > ctx.canvas.width - 100){
-        this.x -= 100;
+    if (this.x > ctx.canvas.width - tileWidth){
+        this.x -= tileWidth;
     } else if (this.x < 0){
-        this.x += 100;
+        this.x += tileWidth;
     } else if (this.y > 390){
-        this.y -= 85;
-    } else if (this.y == -35){
+        this.y -= tileHeight;
+    } else if (this.y == -25){
         this.y = 390;
 
         // It also updates our 'points' variable when our Hero reaches the water.
@@ -118,16 +121,16 @@ Player.prototype.render = function(){
 
 Player.prototype.handleInput = function(move){
     if (move === 'up'){
-        this.y -= 85;
+        this.y -= tileHeight;
     }
     else if (move === 'down'){
-        this.y += 85;
+        this.y += tileHeight;
     } 
     else if (move === 'right'){
-        this.x += 100;
+        this.x += tileWidth;
     } 
     else if (move === 'left'){
-        this.x -= 100;
+        this.x -= tileWidth;
     }; 
 };
 
@@ -135,7 +138,7 @@ Player.prototype.handleInput = function(move){
 // Initial position for our Hero.
 
 Player.prototype.reset = function(){
-    this.x = 200;
+    this.x = 202;
     this.y = 390;
 };
 
@@ -155,7 +158,7 @@ const allEnemies = [enemy1, enemy2, enemy3];
 
 // Place the player object in a variable called player
 
-const player = new Player(200, 390);
+const player = new Player(202, 390);
 
 
 
